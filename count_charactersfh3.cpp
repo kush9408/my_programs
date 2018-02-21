@@ -16,4 +16,4 @@ cout<<"total number of characters in file are :"<<c;
 fin.close();
 return 0;
 }
-
+//hello
