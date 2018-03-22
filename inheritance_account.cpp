@@ -4,69 +4,67 @@ class Account
 {
 private:
 char name[20];
-int ano;      //ano=account number
-int balance;   
+long ano;      //ano=account number
+long balance;   
 public:
 void details()
 {
-cout<<"\n enter the name";
+cout<<"Enter the name "<<endl;
 cin>>name;
-cout<<"\n account number"<<ano;
+cout<<"Account number "<<endl;
 cin>>ano;
-cout<<"\n opening balance";
+cout<<"Opening balance "<<endl;
 cin>>balance;
 }
 void display()
 {
-cout<<endl<<endl<<endl;
-cout<<"account number"<<ano<<endl<<endl;
-cout<<"opening balance"<<balance<<endl<<endl;
-cout<<"name is"<<name<<endl<<endl;
+cout<<endl<<endl;
+cout<<"Account number:"<<ano<<endl;
+cout<<"Name:"<<name<<endl;
+cout<<"Opening balance:"<<balance<<endl;
 } 
-int get_balance(int r)
+long get_balance()
 {
-r=balance; 
+return balance; 
 }      
-};
+}a;
 class Current: public Account //CA=current account
 {
 public:
 void deposit()
 {
-int amount,r;
-cout<<"\n Enter the amount to deposit in the account.....";
+int amount,r=0;
+cout<<"Enter the amount to deposit in the account.....";
 cin>>amount;
-int get_balance(int);
-r =r+amount;
-cout<<"\n The new balance in the amount after the Deposit is: "<<r;
+r =a.get_balance()+amount;
+cout<<"The new balance in the amount after the Deposit is: "<<r;
 }
 void withdraw()
 {
-int money,r;
-cout<<"\n How much money do you want to withdraw....."<<endl;
+int money;
+cout<<"How much money do you want to withdraw....."<<endl;
 cin>>money;
-int get_balance(int);
-if(money<r)
+if(money<a.get_balance())
 {
-cout<<"Transaction in process"<<endl;
+int balance;
+cout<<"Transaction in process:................"<<endl;
 cout<<"Money withdraw is :"<<money<<endl;
-r=r-money;
-cout<<"Balance amount in your acccount is: "<<r<<endl;
+balance=a.get_balance()-money;
+cout<<"Balance amount in your acccount is: "<<balance<<endl;
 }
 else
 cout<<"You cannot withdraw money from the account"<<endl;
 }
 void check_minbalance()
 {
-int r;
-int get_balance(int);
-if(r<500)
+if(a.get_balance()<500)
 {
-cout<<"The balance of the account should not be less than 500.....the penalty imposed is"<<r-500;
-cout<<"After penalty main balance is"<<r-500;
+cout<<"The balance of the account should not be less than 500.....the penalty imposed is"<<a.get_balance()-500;
 }
+else
+cout<<"Your Account Balance is:"<<a.get_balance();
 }
-};
+}c;
 class Saving: public Account //SA= savings account
 {
 public:
@@ -107,14 +105,11 @@ inter=(r*ra*t)/100;
 r=r+inter;
 cout<<"After calculating interest, balance is"<<r<<endl;
 }
-};
+}s;
 int main()
 {
-Account a;
-Current c;
-Saving s;
 char ch;
-cout<<"\n Enter 'c' for Current account or 's' for Saving account";
+cout<<"Enter 'c' for Current account or 's' for Saving account";
 cout<<endl;
 cin>>ch;
 int choice,t,r;
@@ -122,27 +117,26 @@ if(ch=='c'||ch=='C')
 {
 a.details();
 a.display();
-cout<<"\n do you want to :"<<endl;
-cout<<endl;
-cout<<"     1. Deposit"<<endl<<"     2. Withdraw"<<endl<<"     3. Check Balance"<<endl<<"     4. Do nothing"<<endl;;
+cout<<"\nDO YOU WANT TO:"<<endl;
+cout<<"1. Deposit"<<endl<<"2. Withdraw"<<endl<<"3. Check Balance"<<endl<<"4. Do nothing"<<endl;
 cout<<"Enter the choice from(1-4....)"<<endl;
 cin>>choice;
 switch(choice)
 {
 case 1: 
-cout<<"\n You want to deposit"<<endl;
+cout<<endl<<"You want to deposit"<<endl;
 c.deposit();
 break; 
 case 2:
-cout<<"\n You want to withdraw"<<endl;
+cout<<endl<<"You want to withdraw"<<endl;
 c.withdraw();
 break;
 case 3:
-cout<<"\n You want to check balance"<<endl;
+cout<<endl<<"You want to check balance"<<endl;
 c.check_minbalance();
 break;
 case 4:
-cout<<"\n ";
+cout<<"Kuch krna ne tha toh run he q krwaya"<<endl;
 break;
 default:
 cout<<"\n none of the option matched"<<endl;
@@ -178,10 +172,7 @@ break;
 default:
 cout<<"\n none of the option matched"<<endl;
 }
-}
+
 return 0;
 }
-
-
- 
 
