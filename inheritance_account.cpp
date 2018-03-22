@@ -15,9 +15,11 @@ cout<<"Account number "<<endl;
 cin>>ano;
 cout<<"Opening balance "<<endl;
 cin>>balance;
+cout<<endl;
 }
 void display()
 {
+cout<<"\t"<<"*****ACCOUNT*****"<<endl;
 cout<<endl<<endl;
 cout<<"Account number:"<<ano<<endl;
 cout<<"Name:"<<name<<endl;
@@ -73,9 +75,7 @@ void deposit()
 int amount,r;
 cout<<"\n Enter the amount to deposit in the account.....";
 cin>>amount;
-int get_balance(int);
-cout<<r;
-r =r+amount;
+r =a.get_balance()+amount;
 cout<<"\n The new balance in the amount after the Deposit is: "<<r;
 }
 void withdraw()
@@ -83,7 +83,7 @@ void withdraw()
 int money,r;
 cout<<"\n How much money do you want to withdraw....."<<endl;
 cin>>money;
-int get_balance(int);
+r=a.get_balance();
 if(money<r)
 {
 cout<<"Transaction in process"<<endl;
@@ -91,12 +91,13 @@ cout<<"Money withdraw is :"<<money<<endl;
 r=r-money;
 cout<<"Balance amount in your acccount is: "<<r<<endl;
 }
-else
-cout<<"You cannot withdraw money from the account"<<endl;
+else{
+cout<<"You cannot withdraw money from the account"<<endl;}
 }
 void interest(int time,int rate)
 {
 int r;
+r=a.get_balance();
 void display();
 int t=time;
 int ra=rate;
@@ -172,7 +173,7 @@ break;
 default:
 cout<<"\n none of the option matched"<<endl;
 }
-
+}
 return 0;
 }
 
