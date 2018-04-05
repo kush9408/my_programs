@@ -1,19 +1,6 @@
 /* program to revere the words of a string 
 eg: Input :I love upes
     Output:I evol sepu
-
-
-#include<iostream>
-using namespace std;
-#include<string.h>
-int main()
-{
-cha str[80];
-int len=0;
-cout<<"Enter the string"<<endl;
-cin.getline(str,80);
-
-
 */
 
 #include<iostream>
